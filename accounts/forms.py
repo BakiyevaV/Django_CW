@@ -3,16 +3,17 @@ from .models import Clients
 from django.db import models
 from django import forms
 
-class UserForm(ModelForm):
+class UserForm(forms.ModelForm):
+    password2 = forms.CharField(label='Повторный пароль')
     class Meta:
         model = Clients
-        fields = ('login', 'password', 'email', 'birth_date')
+        fields = ('login', 'password','password2','email', 'birth_date')
         widgets = {
             'password': forms.PasswordInput(),
             'birth_date': forms.SelectDateWidget()
         }
 
-class LoginForm(forms.Form):
+class LoginForm(forms.forms.Form):
     login = forms.CharField(max_length=30, )
     password = forms.CharField(max_length=30)
     class Meta:

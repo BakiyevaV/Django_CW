@@ -10,6 +10,7 @@
 <h4>{{bb.published}}<br></h4>
 
 <h4>Комментарии:</h4>
+
 <form  method = "post" action="{% url 'bboard:c_create' bb_id=bb.id %}">
     {% csrf_token %}
     {{ form.as_p }}
